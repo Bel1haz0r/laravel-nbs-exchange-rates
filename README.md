@@ -22,9 +22,14 @@ Adds:
 ---
 
 ## Installation
-
+Add private repository
 ```bash
-composer require yourvendor/laravel-nbs-exchange-rates
+composer config --global repositories.justphoenix composer https://packages.justphoenix.io
+```
+
+Install the package
+```bash
+composer require justphoenix/laravel-nbs-exchange-rates
 ```
 ## Publish configuration
 ```php

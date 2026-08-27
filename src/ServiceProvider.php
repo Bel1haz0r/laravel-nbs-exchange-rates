@@ -16,10 +16,12 @@ final class ServiceProvider extends BaseServiceProvider
             $cfg = config('nbs-exchange-rates');
 
             // only soap-xml implemented here; easy to add more
-            $wsdl = $cfg['soap']['wsdl'] ?? '';
             $options = $cfg['soap']['options'] ?? [];
+            if (!empty($cfg['soap']['wsdl'])) {
+                $options['wsdl'] = $cfg['soap']['wsdl'];
+            }
 
-            return new NbsClient(new SoapXmlDriver($wsdl, $options));
+            return new NbsClient(new SoapXmlDriver($options));
         });
     }
 
